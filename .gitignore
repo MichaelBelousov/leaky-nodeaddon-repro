@@ -1,0 +1,8 @@
+# node
+node_modules
+
+# node native
+build
+
+# vim
+.*.sw[opqr]

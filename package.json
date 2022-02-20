@@ -1,0 +1,17 @@
+{
+  "name": "no-gc",
+  "version": "0.0.1",
+  "description": "an mvr of the gc not kicking in",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "build:debug": "node-gyp rebuild --debug",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael Belousov",
+  "license": "ISC",
+  "devDependencies": {
+    "node-addon-api": "^4.3.0",
+    "node-gyp": "^8.4.1"
+  }
+}
