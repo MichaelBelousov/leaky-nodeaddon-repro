@@ -1,5 +1,5 @@
 
-const { NativeObj, getInfo } = require('./build/Debug/native_test.node')
+const { NativeObj } = require('./build/Debug/native_test.node')
 
 const formatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 1,
@@ -13,7 +13,7 @@ function formatMem(bytes) {
 
 async function main() {
   for (let i = 0; i < 10_000_000; ++i) {
-    const nativeObj = getInfo();
+    const nativeObj = NativeObj.create();
     if (i % 10000 === 0) {
       console.log(`${i} iterations; rss: ${formatMem(process.memoryUsage().rss)}`);
     }
