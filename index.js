@@ -1,11 +1,21 @@
 
-const { NativeObj } = require("./build/Debug/native_test.node")
+const { NativeObj, getInfo } = require('./build/Debug/native_test.node')
+
+const formatter = new Intl.NumberFormat('en-US', {
+  minimumFractionDigits: 1,
+  maximumFractionDigits: 1,
+});
+
+function formatMem(bytes) {
+  const megaBytes = bytes / (1024*1024);
+  return formatter.format(megaBytes) + "MB";
+}
 
 async function main() {
   for (let i = 0; i < 10_000_000; ++i) {
-    const nativeObj = new NativeObj();
+    const nativeObj = getInfo();
     if (i % 10000 === 0) {
-      console.log(String(i) + " iterations, process memory at " + process.memoryUsage.rss);
+      console.log(`${i} iterations, ${nativeObj.fWithData()}; rss: ${formatMem(process.memoryUsage().rss)}`);
     }
   }
 }
