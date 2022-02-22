@@ -11,8 +11,10 @@ function formatMem(bytes) {
   return formatter.format(megaBytes) + "MB";
 }
 
+const MAX_ITERS = 1_000_000;
+
 async function main() {
-  for (let i = 0; i < 10_000_000; ++i) {
+  for (let i = 0; i < MAX_ITERS; ++i) {
     const nativeObj = NativeObj.create();
     if (i % 10000 === 0) {
       console.log(`${i} iterations; rss: ${formatMem(process.memoryUsage().rss)}`);
