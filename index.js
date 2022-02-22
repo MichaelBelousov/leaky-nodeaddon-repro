@@ -15,7 +15,7 @@ async function main() {
   for (let i = 0; i < 10_000_000; ++i) {
     const nativeObj = getInfo();
     if (i % 10000 === 0) {
-      console.log(`${i} iterations, ${nativeObj.fWithData()}; rss: ${formatMem(process.memoryUsage().rss)}`);
+      console.log(`${i} iterations; rss: ${formatMem(process.memoryUsage().rss)}`);
     }
     // uncomment this and the application will not leak
     // await new Promise(setImmediate);
