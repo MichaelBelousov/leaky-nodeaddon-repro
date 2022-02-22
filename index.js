@@ -17,8 +17,10 @@ async function main() {
     if (i % 10000 === 0) {
       console.log(`${i} iterations, ${nativeObj.fWithData()}; rss: ${formatMem(process.memoryUsage().rss)}`);
     }
+    // uncomment this and the application will not leak
+    // await new Promise(setImmediate);
   }
 }
 
-main().catch(console.error)
+main().catch(console.error);
 
