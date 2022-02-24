@@ -4,8 +4,8 @@
   "description": "an mvr of the gc not kicking in",
   "main": "index.js",
   "scripts": {
-    "build": "node-gyp rebuild",
-    "build:debug": "node-gyp rebuild --debug",
+    "build": "node-gyp rebuild --debug",
+    "build:release": "node-gyp rebuild",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Belousov",
